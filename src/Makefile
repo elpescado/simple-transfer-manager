@@ -1,9 +1,10 @@
+include ../Makefile.inc
 CC=gcc
 REFERENCES=gtk+-2.0 libcrypto libcurl
-CFLAGS=-Wall `pkg-config --cflags $(REFERENCES)` -g -DHAVE_CRYPTO -DSTM_POSIX
+CFLAGS=-Wall $(UC_CFLAGS) -g -DHAVE_CRYPTO -DSTM_POSIX
 #LIBS=-Wall -dynamic `curl-config --libs` -dynamic `pkg-config --libs $(REFERENCES)` -g
 #STATIC_LIBS=`curl-config --static-libs`
-LIBS=-g -Wall `pkg-config --libs $(REFERENCES)`  $(STATIC_LIBS)
+LIBS=-g -Wall $(UC_LDFLAGS)  $(STATIC_LIBS)
 
 PACKAGE=stm
 VERSION=1.0
