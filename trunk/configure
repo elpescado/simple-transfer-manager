@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use uConfigure;
+
+my $conf = new uConfigure;
+
+$conf->check_cmd ("gcc");
+
+$conf->check_pkg ("gtk+-2.0");
+$conf->check_pkg ("libcrypto");
+$conf->check_pkg ("libcurl");
+
+$conf->define ("HAVE_CRYPTO");
+$conf->define ("STM_POSIX");
+
+if ($conf->ok ()) {
+	$conf->write_defines ("config.h");
+	$conf->write_makefile_inc ("Makefile.inc");
+}
+
+$conf->print_summary ();
