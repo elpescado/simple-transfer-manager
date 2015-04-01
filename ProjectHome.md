@@ -1,0 +1,1 @@
+Simple Transfer Manager is a file download tool. It is written in C using GTK+ toolkit and libcurl for data transfers.
